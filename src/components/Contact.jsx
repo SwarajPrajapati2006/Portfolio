@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Mail, MapPin, Github, Linkedin } from 'lucide-react';
+import { Send, Mail, MapPin, Github, Linkedin, Code2 } from 'lucide-react';
 
 export default function Contact() {
     const [status, setStatus] = React.useState('');
@@ -158,6 +158,23 @@ export default function Contact() {
                             <h3 className="contact-label">LinkedIn</h3>
                             <a href="https://www.linkedin.com/in/swaraj-prajapati-435410369/" target="_blank" rel="noopener noreferrer" className="contact-value">
                                 Swaraj Prajapati
+                            </a>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="contact-card"
+                    >
+                        <div className="contact-icon-wrapper icon-teal">
+                            <Code2 />
+                        </div>
+                        <div>
+                            <h3 className="contact-label">LeetCode</h3>
+                            <a href="https://leetcode.com/SwarajPrajapati2006" target="_blank" rel="noopener noreferrer" className="contact-value">
+                                SwarajPrajapati2006
                             </a>
                         </div>
                     </motion.div>
