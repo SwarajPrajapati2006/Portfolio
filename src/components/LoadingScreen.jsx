@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Logo from './Logo';
 
-export default function LoadingScreen({ onComplete, progress = 0, theme = 'dark' }) {
+export default function LoadingScreen({ onComplete }) {
     const [isPresent, setIsPresent] = useState(true);
 
     useEffect(() => {
@@ -21,54 +21,56 @@ export default function LoadingScreen({ onComplete, progress = 0, theme = 'dark'
                     className="loading-overlay"
                     initial={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
                 >
                     <div className="loading-content">
-                        {/* Glowing Pulse Effect */}
-                        <motion.div
-                            className="loading-pulse"
-                            animate={{
-                                scale: [1, 1.5, 1],
-                                opacity: [0.3, 0.6, 0.3],
-                            }}
-                            transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                            }}
-                        />
-
                         <motion.div
                             initial={{ scale: 0.5, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                            className="relative z-10"
+                            transition={{ duration: 0.5, ease: "easeOut" }}
+                            className="loading-logo-wrapper"
                         >
-                            <div className="loading-logo-wrapper">
-                                <Logo width={80} height={80} theme={theme} />
-                            </div>
+                            <Logo width={100} height={100} />
                         </motion.div>
 
                         <motion.div
-                            className="loading-bar-container"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.5 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3, duration: 0.5 }}
+                            className="loading-spinner"
+                            style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
                         >
-                            <motion.div
-                                className="loading-bar-fill"
-                                initial={{ width: "0%" }}
-                                animate={{ width: `${progress}%` }}
-                                transition={{ duration: 0.2 }}
-                            />
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            className="loading-percentage"
-                        >
-                            {progress}%
+                            {/* Main spinner ring */}
+                            <div className="spinner-ring"></div>
+                            
+                            {/* Floating dots */}
+                            {[...Array(5)].map((_, i) => (
+                                <motion.div
+                                    key={i}
+                                    animate={{
+                                        y: [-30, -60, -30],
+                                        x: [0, (i - 2) * 20, 0],
+                                        opacity: [0, 1, 0],
+                                        scale: [0.5, 1, 0.5]
+                                    }}
+                                    transition={{
+                                        duration: 1.5,
+                                        repeat: Infinity,
+                                        delay: i * 0.2,
+                                        ease: "easeInOut"
+                                    }}
+                                    style={{
+                                        position: 'absolute',
+                                        width: '10px',
+                                        height: '10px',
+                                        borderRadius: '50%',
+                                        background: i % 2 === 0 ? '#8b5cf6' : '#14b8a6',
+                                        boxShadow: i % 2 === 0 
+                                            ? '0 0 10px #8b5cf6, 0 0 20px #8b5cf6' 
+                                            : '0 0 10px #14b8a6, 0 0 20px #14b8a6'
+                                    }}
+                                />
+                            ))}
                         </motion.div>
                     </div>
                 </motion.div>

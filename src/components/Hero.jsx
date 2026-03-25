@@ -59,9 +59,7 @@ export default function Hero() {
                         ease: "easeOut"
                     }}
                 >
-                    <motion.div
-                        className="avatar-image-wrapper"
-                    >
+                    <motion.div className="avatar-image-wrapper">
                         <img
                             src={profilePhoto}
                             alt="Swaraj Prajapati"

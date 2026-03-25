@@ -94,6 +94,100 @@ export default function Contact() {
                 Let's <span style={{ color: 'var(--accent-purple)' }}>Connect</span>
             </motion.h2>
 
+            {/* Contact Animation */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                style={{
+                    width: '250px',
+                    height: '180px',
+                    margin: '0 auto 2rem',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    position: 'relative'
+                }}
+            >
+                <motion.div
+                    animate={{
+                        y: [0, -15, 0],
+                        rotate: [0, 5, -5, 0]
+                    }}
+                    transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                    style={{
+                        position: 'relative',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center'
+                    }}
+                >
+                    {/* Floating Email Icon */}
+                    <motion.div
+                        animate={{
+                            boxShadow: [
+                                '0 0 20px rgba(139, 92, 246, 0.6), 0 0 40px rgba(139, 92, 246, 0.3), inset 0 0 20px rgba(255,255,255,0.1)',
+                                '0 0 40px rgba(20, 184, 166, 0.8), 0 0 60px rgba(20, 184, 166, 0.4), inset 0 0 20px rgba(255,255,255,0.2)',
+                                '0 0 20px rgba(139, 92, 246, 0.6), 0 0 40px rgba(139, 92, 246, 0.3), inset 0 0 20px rgba(255,255,255,0.1)'
+                            ]
+                        }}
+                        transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                        style={{
+                            width: '100px',
+                            height: '100px',
+                            borderRadius: '50%',
+                            background: 'linear-gradient(135deg, #8b5cf6, #14b8a6)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            position: 'relative',
+                            border: '2px solid rgba(255,255,255,0.3)'
+                        }}
+                    >
+                        <Mail size={48} color="white" style={{ filter: 'drop-shadow(0 0 8px rgba(255,255,255,0.8))' }} />
+                    </motion.div>
+                    
+                    {/* Floating Particles */}
+                    {[...Array(3)].map((_, i) => (
+                        <motion.div
+                            key={i}
+                            animate={{
+                                y: [-60, -100, -60],
+                                x: [0, (i - 1) * 30, 0],
+                                opacity: [0, 1, 0],
+                                scale: [0.5, 1, 0.5]
+                            }}
+                            transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                delay: i * 0.4,
+                                ease: "easeInOut"
+                            }}
+                            style={{
+                                position: 'absolute',
+                                bottom: '60%',
+                                width: '12px',
+                                height: '12px',
+                                borderRadius: '50%',
+                                background: i % 2 === 0 ? '#8b5cf6' : '#14b8a6',
+                                boxShadow: i % 2 === 0 
+                                    ? '0 0 10px #8b5cf6, 0 0 20px #8b5cf6' 
+                                    : '0 0 10px #14b8a6, 0 0 20px #14b8a6'
+                            }}
+                        />
+                    ))}
+                </motion.div>
+            </motion.div>
+
             <div className="contact-grid">
                 {/* Contact Info */}
                 <div className="contact-info">

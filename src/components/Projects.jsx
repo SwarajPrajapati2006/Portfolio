@@ -6,8 +6,19 @@ import bentleyImg from '../assets/bentley.png';
 import joshImg from '../assets/josh app.png';
 import notesImg from '../assets/sticky notes.png';
 import textToSpeechImg from '../assets/text to speech convertor.png';
+import gapgraphImg from '../assets/gapgraph.png';
 
 const projects = [
+    {
+        title: 'GapGraph AI',
+        desc: 'AI-powered career gap analysis tool that helps users identify skill gaps and generate personalized learning roadmaps based on their resume and target job descriptions.',
+        tags: ['React', 'AI/ML', 'TailwindCSS', 'Vercel'],
+        github: 'https://github.com/SwarajPrajapati2006/GapGraph',
+        link: 'https://gap-graph.vercel.app/upload',
+        icon: <Layout size={48} />,
+        image: gapgraphImg,
+        readme: 'https://github.com/SwarajPrajapati2006/GapGraph#readme'
+    },
     {
         title: 'Bentley Clone',
         desc: 'A premium, responsive landing page clone of the Bentley Motors website, featuring luxury aesthetics and smooth transitions.',

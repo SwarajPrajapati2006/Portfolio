@@ -29,8 +29,9 @@ export default function Navbar({ toggleTheme, currentTheme }) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
                     className="nav-logo"
+                    whileHover={{ scale: 1.05 }}
                 >
-                    <Logo width={50} height={50} theme={currentTheme} />
+                    <Logo width={45} height={45} theme={currentTheme} />
                 </motion.div>
 
                 {/* Desktop Nav */}
