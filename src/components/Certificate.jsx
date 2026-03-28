@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import workshopScreenshot from '../assets/Screenshot 2026-01-18 145502.png';
 import certificate2Img from '../assets/certificate2.png';
-import hackCruxImg from '../assets/HackCrux certificate.png';
+import hackCruxImg from '../assets/hackcrux-certificate.png';
 
 const Certificate = () => {
     const certificates = [
