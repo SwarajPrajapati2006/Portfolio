@@ -6,7 +6,7 @@ import bentleyImg from '../assets/bentley.png';
 import joshImg from '../assets/josh app.png';
 import notesImg from '../assets/sticky notes.png';
 import textToSpeechImg from '../assets/text to speech convertor.png';
-import gapgraphImg from '../assets/gapgraph.png';
+import gapgraphImg from '../assets/GapGraph.png';
 
 const projects = [
     {
