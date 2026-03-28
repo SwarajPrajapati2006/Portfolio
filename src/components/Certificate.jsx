@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 import workshopScreenshot from '../assets/Screenshot 2026-01-18 145502.png';
 import certificate2Img from '../assets/certificate2.png';
+import hackCruxImg from '../assets/HackCrux certificate.png';
 
 const Certificate = () => {
     const certificates = [
@@ -27,6 +28,18 @@ const Certificate = () => {
             recipient: "SWARAJ PRAJAPATI",
             description: "on successful completion of Advanced React and Web Architecture",
             image: certificate2Img,
+            verified: true,
+            link: "#"
+        },
+        {
+            title: "HackCrux Hackathon",
+            issuer: "HackCrux",
+            date: "2026",
+            issuerLogo: "hackcrux",
+            type: "standard",
+            recipient: "SWARAJ PRAJAPATI",
+            description: "Certificate of participation/achievement in HackCrux Hackathon",
+            image: hackCruxImg,
             verified: true,
             link: "#"
         }
