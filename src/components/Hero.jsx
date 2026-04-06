@@ -122,10 +122,9 @@ export default function Hero() {
                     className="hero-buttons"
                 >
                     <motion.a
-                        href="/Resume2.pdf"
+                        href="/Resume2 (3).pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        download="Swaraj_Prajapati_Resume.pdf"
                         className="btn-primary"
                         whileHover={{ scale: 1.05, boxShadow: "0 0 20px var(--accent-purple)" }}
                         whileTap={{ scale: 0.95 }}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Mail, MapPin, Github, Linkedin, Code2 } from 'lucide-react';
+import { Send, Mail, MapPin, Github, Linkedin, Code2, Youtube } from 'lucide-react';
 
 export default function Contact() {
     const [status, setStatus] = React.useState('');
@@ -269,6 +269,23 @@ export default function Contact() {
                             <h3 className="contact-label">LeetCode</h3>
                             <a href="https://leetcode.com/SwarajPrajapati2006" target="_blank" rel="noopener noreferrer" className="contact-value">
                                 SwarajPrajapati2006
+                            </a>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="contact-card"
+                    >
+                        <div className="contact-icon-wrapper icon-purple">
+                            <Youtube />
+                        </div>
+                        <div>
+                            <h3 className="contact-label">YouTube</h3>
+                            <a href="https://www.youtube.com/@77Ff77" target="_blank" rel="noopener noreferrer" className="contact-value">
+                                @77Ff77
                             </a>
                         </div>
                     </motion.div>
