@@ -12,21 +12,33 @@ A futuristic, high-tech portfolio website built with React and Vite, featuring 3
 
 ## 📂 Featured Projects
 
+### 🧠 GapGraph AI
+AI-powered career gap analysis tool that helps users identify skill gaps and generate personalized learning roadmaps based on their resume and target job descriptions.
+**[Live Demo](https://gap-graph.vercel.app/upload)** | **[GitHub](https://github.com/SwarajPrajapati2006/GapGraph)**
+
+### 🌍 World Atlas
+Explore the world with an interactive atlas application displaying country data, flags, and more.
+**[Live Demo](https://world-atlas-bay.vercel.app)** | **[GitHub](https://github.com/SwarajPrajapati2006/World-Atlas)**
+
+### 🍕 Food Galaxy
+A vibrant food discovery platform showcasing various cuisines and recipes with an engaging user interface.
+**[Live Demo](https://food-galaxy.vercel.app)** | **[GitHub](https://github.com/SwarajPrajapati2006/Food-Galaxy)**
+
 ### 🏎️ Bentley Clone
 A premium, responsive landing page clone of the Bentley Motors website, featuring luxury aesthetics and smooth transitions.
-**[Live Demo](https://bentleyclone.netlify.app/)**
+**[Live Demo](https://luxury-choux-7ba7a1.netlify.app/)** | **[GitHub](https://github.com/SwarajPrajapati2006/Projects)**
 
 ### 🎥 Josh Talks Clone
 A comprehensive clone of the Josh Talks platform, focusing on video presentation and inspiring content layout.
-**[Live Demo](https://joshtalks.netlify.app/)**
+**[Live Demo](https://joshtalks.netlify.app/)** | **[GitHub](https://github.com/SwarajPrajapati2006/Projects)**
 
 ### 📝 Notes App
 A powerful React-based note-taking application featuring intuitive UI and efficient client-side data management.
-**[Live Demo](https://keepnotes56.netlify.app/)**
+**[Live Demo](https://keepnotes56.netlify.app/)** | **[GitHub](https://github.com/SwarajPrajapati2006/Projects)**
 
 ### 🎙️ Text to Speech
 A sleek utility tool that converts written text into audible speech using browser synthesis APIs.
-**[Live Demo](https://speechconverter1.netlify.app/)**
+**[Live Demo](https://speechconverter1.netlify.app/)** | **[GitHub](https://github.com/SwarajPrajapati2006/Projects)**
 
 ## 🛠️ Tech Stack
 
@@ -54,6 +66,9 @@ A sleek utility tool that converts written text into audible speech using browse
 ## 📜 Certificates
 
 - **AI Tools Workshop** (Be10x)
+- **Advanced Web Development** (Meta)
+- **HackCrux Hackathon** (HackCrux)
+- **ArtPark Participation** (ArtPark)
 
 ---
 
