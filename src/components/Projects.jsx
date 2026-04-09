@@ -1,12 +1,14 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, Github, Layout, Monitor, StickyNote, Mic } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, Github, Layout, Monitor, StickyNote, Mic, Youtube, X } from 'lucide-react';
 
 import bentleyImg from '../assets/bentley.png';
 import joshImg from '../assets/josh app.png';
 import notesImg from '../assets/sticky notes.png';
 import textToSpeechImg from '../assets/text to speech convertor.png';
 import gapgraphImg from '../assets/GapGraph.png';
+import worldAtlasImg from '../assets/World Atlas.png';
+import foodGalaxyImg from '../assets/Food Galaxy.png';
 
 const projects = [
     {
@@ -30,6 +32,26 @@ const projects = [
         readme: 'https://github.com/SwarajPrajapati2006/Projects/tree/main/Bentley%20CLone'
     },
     {
+        title: 'World Atlas',
+        desc: 'Explore the world with an interactive atlas application displaying country data, flags, and more.',
+        tags: ['React', 'TailwindCSS', 'API'],
+        github: 'https://github.com/SwarajPrajapati2006/World-Atlas',
+        link: 'https://world-atlas-bay.vercel.app',
+        icon: <Layout size={48} />,
+        image: worldAtlasImg,
+        readme: 'https://github.com/SwarajPrajapati2006/World-Atlas#readme'
+    },
+    {
+        title: 'Food Galaxy',
+        desc: 'A vibrant food discovery platform showcasing various cuisines and recipes with an engaging user interface.',
+        tags: ['React', 'CSS', 'Vite'],
+        github: 'https://github.com/SwarajPrajapati2006/Food-Galaxy',
+        link: 'https://food-galaxy.vercel.app',
+        icon: <Layout size={48} />,
+        image: foodGalaxyImg,
+        readme: 'https://github.com/SwarajPrajapati2006/Food-Galaxy#readme'
+    },
+    {
         title: 'Josh Talks Clone',
         desc: 'A comprehensive clone of the Josh Talks platform, focusing on video presentation and inspiring content layout.',
         tags: ['HTML5', 'CSS3', 'Layout Design'],
@@ -37,7 +59,8 @@ const projects = [
         link: 'https://joshtalks.netlify.app/',
         icon: <Monitor size={48} />,
         image: joshImg,
-        readme: 'https://github.com/SwarajPrajapati2006/Projects/tree/main/Josh%20Talks%20clone'
+        readme: 'https://github.com/SwarajPrajapati2006/Projects/tree/main/Josh%20Talks%20clone',
+        ytLink: 'https://www.youtube.com/embed/sLckr0J4tCg'
     },
     {
         title: 'Notes App',
@@ -62,6 +85,8 @@ const projects = [
 ];
 
 export default function Projects() {
+    const [selectedVideo, setSelectedVideo] = useState(null);
+
     return (
         <section id="projects" className="section-container">
             <motion.h2
@@ -76,14 +101,80 @@ export default function Projects() {
 
             <div className="projects-grid">
                 {projects.map((project, index) => (
-                    <ProjectCard key={index} project={project} index={index} />
+                    <ProjectCard key={index} project={project} index={index} onPlayVideo={() => setSelectedVideo(project.ytLink)} />
                 ))}
             </div>
+
+            <AnimatePresence>
+                {selectedVideo && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="video-modal-overlay"
+                        onClick={() => setSelectedVideo(null)}
+                        style={{
+                            position: 'fixed',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            backgroundColor: 'rgba(0,0,0,0.8)',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            zIndex: 1000
+                        }}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.8 }}
+                            animate={{ scale: 1 }}
+                            exit={{ scale: 0.8 }}
+                            onClick={(e) => e.stopPropagation()}
+                            style={{
+                                position: 'relative',
+                                width: '80%',
+                                maxWidth: '800px',
+                                aspectRatio: '16/9',
+                                backgroundColor: '#000',
+                                borderRadius: '12px',
+                                overflow: 'hidden'
+                            }}
+                        >
+                            <button
+                                onClick={() => setSelectedVideo(null)}
+                                style={{
+                                    position: 'absolute',
+                                    top: '10px',
+                                    right: '10px',
+                                    background: 'rgba(0,0,0,0.5)',
+                                    border: 'none',
+                                    color: 'white',
+                                    cursor: 'pointer',
+                                    padding: '8px',
+                                    borderRadius: '50%',
+                                    zIndex: 10
+                                }}
+                            >
+                                <X size={24} />
+                            </button>
+                            <iframe
+                                src={selectedVideo}
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                                style={{ width: '100%', height: '100%' }}
+                            ></iframe>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, onPlayVideo }) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -148,9 +239,16 @@ function ProjectCard({ project, index }) {
                     <a href={project.link} className="project-link link-demo" target="_blank" rel="noopener noreferrer">
                         <ExternalLink size={18} /> Live Demo
                     </a>
-                    <a href={project.readme} className="project-link link-code" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }}>
-                        README
-                    </a>
+                    {project.readme && (
+                        <a href={project.readme} className="project-link link-code" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }}>
+                            README
+                        </a>
+                    )}
+                    {project.ytLink && (
+                        <button onClick={onPlayVideo} className="project-link link-demo" style={{ background: 'rgba(255, 0, 0, 0.1)', color: '#ff0000', border: '1px solid rgba(255, 0, 0, 0.2)' }}>
+                            <Youtube size={18} /> Watch
+                        </button>
+                    )}
                 </div>
             </div>
         </motion.div>

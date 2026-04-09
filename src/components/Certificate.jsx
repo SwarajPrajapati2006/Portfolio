@@ -4,6 +4,7 @@ import { ExternalLink } from 'lucide-react';
 import workshopScreenshot from '../assets/Screenshot 2026-01-18 145502.png';
 import certificate2Img from '../assets/certificate2.png';
 import hackCruxImg from '../assets/hackcrux-certificate.png';
+import artParkImg from '../assets/ArtPark Partcipation Certificate.png';
 
 const Certificate = () => {
     const certificates = [
@@ -40,6 +41,18 @@ const Certificate = () => {
             recipient: "SWARAJ PRAJAPATI",
             description: "Certificate of participation/achievement in HackCrux Hackathon",
             image: hackCruxImg,
+            verified: true,
+            link: "#"
+        },
+        {
+            title: "ArtPark Participation",
+            issuer: "ArtPark",
+            date: "2026",
+            issuerLogo: "artpark",
+            type: "standard",
+            recipient: "SWARAJ PRAJAPATI",
+            description: "Certificate of participation in ArtPark",
+            image: artParkImg,
             verified: true,
             link: "#"
         }

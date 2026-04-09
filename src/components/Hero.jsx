@@ -122,7 +122,7 @@ export default function Hero() {
                     className="hero-buttons"
                 >
                     <motion.a
-                        href="/Resume2 (3).pdf"
+                        href="/Resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn-primary"

@@ -4,7 +4,7 @@ A futuristic, high-tech portfolio website built with React and Vite, featuring 3
 
 ## 🚀 Key Features
 
-- **3D Anti-Gravity Navbar**: Interactive navigation with floating elements and smooth transitions.
+- **3D  Navbar**: Interactive navigation with floating elements and smooth transitions.
 - **Project Showcase**: A curated list of featured projects with interactive thumbnails and GitHub integration.
 - **Certificates Viewer**: Professional certificate display with direct PDF viewing functionality.
 - **Glassmorphism UI**: Modern design system using backdrop filters and vibrant purple accents.
