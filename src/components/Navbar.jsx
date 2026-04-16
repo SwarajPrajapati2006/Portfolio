@@ -59,12 +59,14 @@ export default function Navbar({ toggleTheme, currentTheme }) {
                             onClick={toggleTheme}
                             className="menu-btn"
                             style={{ fontSize: '1.25rem' }}
+                            aria-label={currentTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
                         >
                             {currentTheme === 'dark' ? '☀️' : '🌙'}
                         </button>
                         <button
                             className="menu-btn"
                             onClick={() => setMobileOpen(!mobileOpen)}
+                            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
                         >
                             {mobileOpen ? '✕' : '☰'}
                         </button>

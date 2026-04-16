@@ -38,7 +38,7 @@ export default function Skills() {
                         whileHover={{ scale: 1.05, y: -5 }}
                     >
                         <div className="skill-icon">
-                            <img src={skill.icon} alt={skill.name} />
+                            <img src={skill.icon} alt={skill.name} loading="lazy" decoding="async" width="48" height="48" />
                         </div>
                         <h3 className="skill-name">{skill.name}</h3>
                     </motion.div>

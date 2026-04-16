@@ -79,6 +79,7 @@ export default function Contact() {
                                 marginLeft: '1rem',
                                 fontSize: '1.2rem'
                             }}
+                            aria-label="Close success message"
                         >
                             &times;
                         </button>
@@ -189,106 +190,111 @@ export default function Contact() {
             </motion.div>
 
             <div className="contact-grid">
-                {/* Contact Info */}
+                {/* Contact Info - Categorized */}
                 <div className="contact-info">
+
+                    {/* Category: Direct Contact */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="contact-card"
+                        className="contact-category-group"
                     >
-                        <div className="contact-icon-wrapper icon-teal">
-                            <Mail />
+                        <div className="contact-category-header">
+                            <span className="contact-category-dot dot-teal"></span>
+                            <h4 className="contact-category-title">Direct Contact</h4>
+                            <div className="contact-category-line"></div>
                         </div>
-                        <div>
-                            <h3 className="contact-label">Email</h3>
-                            <a href="mailto:swaraj.prajapati.cg@gmail.com" className="contact-value">
-                                swaraj.prajapati.cg@gmail.com
-                            </a>
+                        <div className="contact-cards-group">
+                            <div className="contact-card">
+                                <div className="contact-icon-wrapper icon-teal"><Mail /></div>
+                                <div>
+                                    <h3 className="contact-label">Email</h3>
+                                    <a href="mailto:swaraj.prajapati.cg@gmail.com" className="contact-value">
+                                        swaraj.prajapati.cg@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="contact-card">
+                                <div className="contact-icon-wrapper icon-purple"><MapPin /></div>
+                                <div>
+                                    <h3 className="contact-label">Location</h3>
+                                    <p className="contact-value">Ahmedabad, Gujarat</p>
+                                </div>
+                            </div>
                         </div>
                     </motion.div>
 
+                    {/* Category: Social Profiles */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="contact-card"
+                        transition={{ delay: 0.1 }}
+                        className="contact-category-group"
                     >
-                        <div className="contact-icon-wrapper icon-purple">
-                            <MapPin />
+                        <div className="contact-category-header">
+                            <span className="contact-category-dot dot-purple"></span>
+                            <h4 className="contact-category-title">Social Profiles</h4>
+                            <div className="contact-category-line"></div>
                         </div>
-                        <div>
-                            <h3 className="contact-label">Location</h3>
-                            <p className="contact-value">Ahmedabad, Gujarat</p>
-                        </div>
-                    </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="contact-card"
-                    >
-                        <div className="contact-icon-wrapper icon-teal">
-                            <Github />
-                        </div>
-                        <div>
-                            <h3 className="contact-label">GitHub</h3>
-                            <a href="https://github.com/SwarajPrajapati2006" target="_blank" rel="noopener noreferrer" className="contact-value">
-                                SwarajPrajapati2006
-                            </a>
-                        </div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="contact-card"
-                    >
-                        <div className="contact-icon-wrapper icon-purple">
-                            <Linkedin />
-                        </div>
-                        <div>
-                            <h3 className="contact-label">LinkedIn</h3>
-                            <a href="https://www.linkedin.com/in/swaraj-prajapati-435410369/" target="_blank" rel="noopener noreferrer" className="contact-value">
-                                Swaraj Prajapati
-                            </a>
+                        <div className="contact-cards-group">
+                            <div className="contact-card">
+                                <div className="contact-icon-wrapper icon-teal"><Github /></div>
+                                <div>
+                                    <h3 className="contact-label">GitHub</h3>
+                                    <a href="https://github.com/SwarajPrajapati2006" target="_blank" rel="noopener noreferrer" className="contact-value">
+                                        SwarajPrajapati2006
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="contact-card">
+                                <div className="contact-icon-wrapper icon-purple"><Linkedin /></div>
+                                <div>
+                                    <h3 className="contact-label">LinkedIn</h3>
+                                    <a href="https://www.linkedin.com/in/swaraj-prajapati-435410369/" target="_blank" rel="noopener noreferrer" className="contact-value">
+                                        Swaraj Prajapati
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="contact-card">
+                                <div className="contact-icon-wrapper icon-teal"><Youtube /></div>
+                                <div>
+                                    <h3 className="contact-label">YouTube</h3>
+                                    <a href="https://www.youtube.com/@77Ff77" target="_blank" rel="noopener noreferrer" className="contact-value">
+                                        @77Ff77
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </motion.div>
 
+                    {/* Category: Coding */}
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="contact-card"
+                        transition={{ delay: 0.2 }}
+                        className="contact-category-group"
                     >
-                        <div className="contact-icon-wrapper icon-teal">
-                            <Code2 />
+                        <div className="contact-category-header">
+                            <span className="contact-category-dot dot-teal"></span>
+                            <h4 className="contact-category-title">Coding</h4>
+                            <div className="contact-category-line"></div>
                         </div>
-                        <div>
-                            <h3 className="contact-label">LeetCode</h3>
-                            <a href="https://leetcode.com/SwarajPrajapati2006" target="_blank" rel="noopener noreferrer" className="contact-value">
-                                SwarajPrajapati2006
-                            </a>
+                        <div className="contact-cards-group">
+                            <div className="contact-card">
+                                <div className="contact-icon-wrapper icon-teal"><Code2 /></div>
+                                <div>
+                                    <h3 className="contact-label">LeetCode</h3>
+                                    <a href="https://leetcode.com/SwarajPrajapati2006" target="_blank" rel="noopener noreferrer" className="contact-value">
+                                        SwarajPrajapati2006
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="contact-card"
-                    >
-                        <div className="contact-icon-wrapper icon-purple">
-                            <Youtube />
-                        </div>
-                        <div>
-                            <h3 className="contact-label">YouTube</h3>
-                            <a href="https://www.youtube.com/@77Ff77" target="_blank" rel="noopener noreferrer" className="contact-value">
-                                @77Ff77
-                            </a>
-                        </div>
-                    </motion.div>
                 </div>
 
                 {/* Form */}

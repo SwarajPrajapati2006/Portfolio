@@ -9,6 +9,7 @@ import textToSpeechImg from '../assets/text to speech convertor.png';
 import gapgraphImg from '../assets/GapGraph.png';
 import worldAtlasImg from '../assets/World Atlas.png';
 import foodGalaxyImg from '../assets/Food Galaxy.png';
+import irctcImg from '../assets/IRctc hackathon.png';
 
 const projects = [
     {
@@ -20,6 +21,17 @@ const projects = [
         icon: <Layout size={48} />,
         image: gapgraphImg,
         readme: 'https://github.com/SwarajPrajapati2006/GapGraph#readme'
+    },
+    {
+        title: 'IRCTC Re-Design',
+        desc: 'A modern, user-friendly redesign of the IRCTC railway booking platform with improved UI/UX, faster navigation, and enhanced accessibility features. Built during a hackathon.',
+        tags: ['React', 'Hackathon', 'UI/UX', 'Vercel'],
+        github: 'https://github.com/SwarajPrajapati2006/IRCTC-Re-Design',
+        link: 'https://irctc-re-design.vercel.app',
+        icon: <Layout size={48} />,
+        image: irctcImg,
+        readme: 'https://github.com/SwarajPrajapati2006/IRCTC-Re-Design/blob/main/README.md',
+        ytLink: 'https://www.youtube.com/embed/I-nk-hxC4sA'
     },
     {
         title: 'Bentley Clone',
@@ -155,6 +167,7 @@ export default function Projects() {
                                     borderRadius: '50%',
                                     zIndex: 10
                                 }}
+                                aria-label="Close video player"
                             >
                                 <X size={24} />
                             </button>
@@ -202,7 +215,8 @@ function ProjectCard({ project, index, onPlayVideo }) {
                     {project.image ? (
                         <img
                             src={project.image}
-                            alt={project.title}
+                            alt={`${project.title} - Project Screenshot`}
+                            loading="lazy"
                             style={{
                                 width: '100%',
                                 height: '100%',
@@ -245,7 +259,7 @@ function ProjectCard({ project, index, onPlayVideo }) {
                         </a>
                     )}
                     {project.ytLink && (
-                        <button onClick={onPlayVideo} className="project-link link-demo" style={{ background: 'rgba(255, 0, 0, 0.1)', color: '#ff0000', border: '1px solid rgba(255, 0, 0, 0.2)' }}>
+                        <button onClick={onPlayVideo} className="project-link link-demo" style={{ background: 'rgba(255, 0, 0, 0.1)', color: '#ff0000', border: '1px solid rgba(255, 0, 0, 0.2)' }} aria-label={`Watch ${project.title} demo video`}>
                             <Youtube size={18} /> Watch
                         </button>
                     )}

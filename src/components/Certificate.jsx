@@ -132,7 +132,7 @@ const Certificate = () => {
                                 </div>
                                 <div className="cert-right-panel">
                                     <div className="cert-screenshot-container">
-                                        <img src={cert.image} alt={cert.title} className="cert-screenshot" />
+                                        <img src={cert.image} alt={cert.title} className="cert-screenshot" loading="lazy" />
                                     </div>
                                     <div className="cert-side-ribbon">
                                         <div className="cert-ribbon-content">
@@ -166,7 +166,8 @@ const Certificate = () => {
                                     >
                                         <img 
                                             src={cert.image} 
-                                            alt={cert.title} 
+                                            alt={cert.title}
+                                            loading="lazy"
                                             style={{ width: '100%', height: '150px', objectFit: 'cover' }}
                                         />
                                     </div>

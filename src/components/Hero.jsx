@@ -62,8 +62,11 @@ export default function Hero() {
                     <motion.div className="avatar-image-wrapper">
                         <img
                             src={profilePhoto}
-                            alt="Swaraj Prajapati"
+                            alt="Swaraj Prajapati - Full Stack Developer"
                             className="avatar-img"
+                            loading="eager"
+                            width="200"
+                            height="200"
                         />
                     </motion.div>
                 </motion.div>
