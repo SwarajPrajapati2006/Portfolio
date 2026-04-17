@@ -72,8 +72,9 @@ const Certificate = () => {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
                 className="section-title"
+                style={{ fontFamily: 'var(--font-display)' }}
             >
-                Certifications
+                <span style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic' }}>Certifications</span> & Awards
             </motion.h2>
 
             <div className="certificate-grid">

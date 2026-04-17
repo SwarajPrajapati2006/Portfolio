@@ -1,6 +1,7 @@
 import React, { Suspense, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HelmetProvider } from 'react-helmet-async';
+import useScrollBlur from './hooks/useScrollBlur';
 import LoadingScreen from './components/LoadingScreen';
 import Background from './components/Background';
 import Navbar from './components/Navbar';
@@ -11,6 +12,7 @@ import Projects from './components/Projects';
 import Certificate from './components/Certificate';
 import Contact from './components/Contact';
 import CustomCursor from './components/CustomCursor';
+import Footer from './components/Footer';
 import SEO from './components/SEO';
 
 function App() {
@@ -48,6 +50,9 @@ function App() {
         setTheme(newTheme);
         document.documentElement.setAttribute('data-theme', newTheme);
     };
+
+    // Initialize scroll blur animation
+    useScrollBlur();
 
     return (
         <HelmetProvider>
@@ -87,9 +92,7 @@ function App() {
                     <Certificate />
                     <Contact />
                 </main>
-                <footer className="footer">
-                    © {new Date().getFullYear()}
-                </footer>
+                <Footer />
             </motion.div>
         </div>
         </HelmetProvider>

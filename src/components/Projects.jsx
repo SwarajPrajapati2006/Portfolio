@@ -41,7 +41,8 @@ const projects = [
         link: 'https://luxury-choux-7ba7a1.netlify.app/',
         icon: <Layout size={48} />,
         image: bentleyImg,
-        readme: 'https://github.com/SwarajPrajapati2006/Projects/tree/main/Bentley%20CLone'
+        readme: 'https://github.com/SwarajPrajapati2006/Projects/tree/main/Bentley%20CLone',
+        ytLink: 'https://www.youtube.com/embed/FrVXoVzK4Ys'
     },
     {
         title: 'World Atlas',
@@ -51,7 +52,8 @@ const projects = [
         link: 'https://world-atlas-bay.vercel.app',
         icon: <Layout size={48} />,
         image: worldAtlasImg,
-        readme: 'https://github.com/SwarajPrajapati2006/World-Atlas#readme'
+        readme: 'https://github.com/SwarajPrajapati2006/World-Atlas#readme',
+        ytLink: 'https://www.youtube.com/embed/HeVc8S2kHTI'
     },
     {
         title: 'Food Galaxy',
@@ -61,7 +63,8 @@ const projects = [
         link: 'https://food-galaxy.vercel.app',
         icon: <Layout size={48} />,
         image: foodGalaxyImg,
-        readme: 'https://github.com/SwarajPrajapati2006/Food-Galaxy#readme'
+        readme: 'https://github.com/SwarajPrajapati2006/Food-Galaxy#readme',
+        ytLink: 'https://www.youtube.com/embed/Njp-wXsKDq0'
     },
     {
         title: 'Josh Talks Clone',
@@ -107,8 +110,9 @@ export default function Projects() {
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
                 className="section-title"
+                style={{ fontFamily: 'var(--font-display)' }}
             >
-                Featured <span className="highlight-purple" style={{ color: 'var(--accent-purple)' }}>Projects</span>
+                Featured <span style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', color: 'var(--accent-purple)' }}>Projects</span>
             </motion.h2>
 
             <div className="projects-grid">
@@ -188,6 +192,8 @@ export default function Projects() {
 }
 
 function ProjectCard({ project, index, onPlayVideo }) {
+    const [isHovered, setIsHovered] = React.useState(false);
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -209,10 +215,15 @@ function ProjectCard({ project, index, onPlayVideo }) {
             className="project-card group"
             style={{ perspective: 1000 }}
         >
-            <div className="project-image">
+            <div 
+                className="project-image"
+                onMouseEnter={() => project.ytLink && setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                style={{ position: 'relative', overflow: 'hidden' }}
+            >
                 <div className="project-image-overlay" />
                 <div className="project-placeholder-content">
-                    {project.image ? (
+                    {project.image && !isHovered ? (
                         <img
                             src={project.image}
                             alt={`${project.title} - Project Screenshot`}
@@ -222,7 +233,22 @@ function ProjectCard({ project, index, onPlayVideo }) {
                                 height: '100%',
                                 objectFit: 'cover',
                                 objectPosition: 'center top',
-                                transition: 'transform 0.5s ease'
+                                transition: 'transform 0.5s ease, opacity 0.3s ease'
+                            }}
+                        />
+                    ) : project.ytLink && isHovered ? (
+                        <iframe
+                            src={project.ytLink}
+                            title={`${project.title} preview`}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                zIndex: 2
                             }}
                         />
                     ) : (
@@ -232,6 +258,24 @@ function ProjectCard({ project, index, onPlayVideo }) {
                         </>
                     )}
                 </div>
+                {project.ytLink && (
+                    <div className="video-hover-indicator" style={{
+                        position: 'absolute',
+                        bottom: '10px',
+                        right: '10px',
+                        background: 'rgba(255, 0, 0, 0.8)',
+                        color: 'white',
+                        padding: '4px 8px',
+                        borderRadius: '4px',
+                        fontSize: '0.75rem',
+                        fontWeight: 600,
+                        zIndex: 3,
+                        opacity: isHovered ? 0 : 1,
+                        transition: 'opacity 0.3s ease'
+                    }}>
+                        ▶ Preview
+                    </div>
+                )}
             </div>
 
             <div className="project-content">

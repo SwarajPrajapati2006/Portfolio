@@ -77,9 +77,10 @@ export default function Hero() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
                     className="hero-title"
+                    style={{ fontFamily: 'var(--font-display)', fontWeight: 700, letterSpacing: '-0.03em' }}
                 >
                     <div className="hero-name-container">
-                        <span className="gradient-text">
+                        <span className="gradient-text" style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)' }}>
                             {displayText}
                         </span>
                         <motion.span
@@ -102,6 +103,7 @@ export default function Hero() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.5 }}
                     className="hero-subtitle"
+                    style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, letterSpacing: '0.05em' }}
                 >
                     CS Engineering Student & Developer
                 </motion.h2>
@@ -112,6 +114,7 @@ export default function Hero() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.7 }}
                     className="hero-desc"
+                    style={{ fontFamily: 'var(--font-main)', fontWeight: 300, fontSize: '1.15rem', lineHeight: 1.8 }}
                 >
                     Crafting digital experiences that defy gravity. Specialized in building exceptional
                     digital products with modern technologies.

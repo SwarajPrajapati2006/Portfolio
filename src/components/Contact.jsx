@@ -91,8 +91,9 @@ export default function Contact() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 className="section-title"
+                style={{ fontFamily: 'var(--font-display)' }}
             >
-                Let's <span style={{ color: 'var(--accent-purple)' }}>Connect</span>
+                Let's <span style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', color: 'var(--accent-purple)' }}>Connect</span>
             </motion.h2>
 
             {/* Contact Animation */}

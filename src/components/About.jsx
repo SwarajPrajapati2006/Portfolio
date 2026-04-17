@@ -9,8 +9,9 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 className="section-title"
+                style={{ fontFamily: 'var(--font-display)' }}
             >
-                About Me
+                About <span style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400 }}>Me</span>
             </motion.h2>
 
             <div className="about-content glass-card">
