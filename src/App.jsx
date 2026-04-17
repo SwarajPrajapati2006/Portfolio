@@ -2,6 +2,7 @@ import React, { Suspense, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HelmetProvider } from 'react-helmet-async';
 import useScrollBlur from './hooks/useScrollBlur';
+import usePageTitle from './hooks/usePageTitle';
 import LoadingScreen from './components/LoadingScreen';
 import Background from './components/Background';
 import Navbar from './components/Navbar';
@@ -19,6 +20,9 @@ function App() {
     const [isLoading, setIsLoading] = React.useState(true);
     const [loadingProgress, setLoadingProgress] = useState(0);
     const [theme, setTheme] = useState('light');
+
+    // Initialize page title updater
+    usePageTitle();
 
     useEffect(() => {
         if (isLoading) {
