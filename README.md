@@ -4,7 +4,7 @@
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org)
 [![Vite](https://img.shields.io/badge/Vite-4.4.5-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev)
 
-A futuristic, high-tech portfolio website built with React and Vite, featuring 3D animations, scroll-triggered effects, and a sleek dark mode aesthetic.
+A futuristic, high-tech portfolio website built with React and Vite, featuring 3D animations, scroll-triggered blur effects, animated skill bars, and a sleek dark mode aesthetic.
 
 ## 🌐 Live Demo
 
