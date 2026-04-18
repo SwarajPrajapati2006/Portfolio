@@ -1,38 +1,15 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Layout, Monitor, StickyNote, Mic, Youtube, X } from 'lucide-react';
+import { ExternalLink, Github, Layout, Monitor, StickyNote, Mic, Youtube, X, ChevronRight, FileText, ChevronDown } from 'lucide-react';
 
 import bentleyImg from '../assets/bentley.png';
 import joshImg from '../assets/josh app.png';
 import notesImg from '../assets/sticky notes.png';
 import textToSpeechImg from '../assets/text to speech convertor.png';
-import gapgraphImg from '../assets/GapGraph.png';
 import worldAtlasImg from '../assets/World Atlas.png';
 import foodGalaxyImg from '../assets/Food Galaxy.png';
-import irctcImg from '../assets/IRctc hackathon.png';
 
-const projects = [
-    {
-        title: 'GapGraph AI',
-        desc: 'AI-powered career gap analysis tool that helps users identify skill gaps and generate personalized learning roadmaps based on their resume and target job descriptions.',
-        tags: ['React', 'AI/ML', 'TailwindCSS', 'Vercel'],
-        github: 'https://github.com/SwarajPrajapati2006/GapGraph',
-        link: 'https://gap-graph.vercel.app/upload',
-        icon: <Layout size={48} />,
-        image: gapgraphImg,
-        readme: 'https://github.com/SwarajPrajapati2006/GapGraph#readme'
-    },
-    {
-        title: 'IRCTC Re-Design',
-        desc: 'A modern, user-friendly redesign of the IRCTC railway booking platform with improved UI/UX, faster navigation, and enhanced accessibility features. Built during a hackathon.',
-        tags: ['React', 'Hackathon', 'UI/UX', 'Vercel'],
-        github: 'https://github.com/SwarajPrajapati2006/IRCTC-Re-Design',
-        link: 'https://irctc-re-design.vercel.app',
-        icon: <Layout size={48} />,
-        image: irctcImg,
-        readme: 'https://github.com/SwarajPrajapati2006/IRCTC-Re-Design/blob/main/README.md',
-        ytLink: 'https://www.youtube.com/embed/I-nk-hxC4sA'
-    },
+const mainProjects = [
     {
         title: 'Bentley Clone',
         desc: 'A premium, responsive landing page clone of the Bentley Motors website, featuring luxury aesthetics and smooth transitions.',
@@ -101,6 +78,9 @@ const projects = [
 
 export default function Projects() {
     const [selectedVideo, setSelectedVideo] = useState(null);
+    const [showAll, setShowAll] = useState(false);
+
+    const visibleProjects = showAll ? mainProjects : mainProjects.slice(0, 3);
 
     return (
         <section id="projects" className="section-container">
@@ -116,11 +96,47 @@ export default function Projects() {
             </motion.h2>
 
             <div className="projects-grid">
-                {projects.map((project, index) => (
-                    <ProjectCard key={index} project={project} index={index} onPlayVideo={() => setSelectedVideo(project.ytLink)} />
-                ))}
+                <AnimatePresence>
+                    {visibleProjects.map((project, index) => (
+                        <ProjectCard
+                            key={project.title}
+                            project={project}
+                            index={index}
+                            onPlayVideo={() => setSelectedVideo(project.ytLink)}
+                        />
+                    ))}
+                </AnimatePresence>
             </div>
 
+            {/* View More / View Less Button */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="view-more-container"
+            >
+                <motion.button
+                    className="view-more-btn"
+                    onClick={() => setShowAll(!showAll)}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                >
+                    {showAll ? (
+                        <>
+                            <ChevronDown size={20} style={{ transform: 'rotate(180deg)' }} />
+                            Show Less
+                        </>
+                    ) : (
+                        <>
+                            <ChevronRight size={20} />
+                            View More Projects
+                        </>
+                    )}
+                </motion.button>
+            </motion.div>
+
+            {/* Video Modal */}
             <AnimatePresence>
                 {selectedVideo && (
                     <motion.div
@@ -135,7 +151,7 @@ export default function Projects() {
                             left: 0,
                             width: '100%',
                             height: '100%',
-                            backgroundColor: 'rgba(0,0,0,0.8)',
+                            backgroundColor: 'rgba(0,0,0,0.85)',
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
@@ -143,9 +159,9 @@ export default function Projects() {
                         }}
                     >
                         <motion.div
-                            initial={{ scale: 0.8 }}
-                            animate={{ scale: 1 }}
-                            exit={{ scale: 0.8 }}
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
                             onClick={(e) => e.stopPropagation()}
                             style={{
                                 position: 'relative',
@@ -154,7 +170,8 @@ export default function Projects() {
                                 aspectRatio: '16/9',
                                 backgroundColor: '#000',
                                 borderRadius: '12px',
-                                overflow: 'hidden'
+                                overflow: 'hidden',
+                                boxShadow: '0 0 60px rgba(139, 92, 246, 0.5)'
                             }}
                         >
                             <button
@@ -169,7 +186,10 @@ export default function Projects() {
                                     cursor: 'pointer',
                                     padding: '8px',
                                     borderRadius: '50%',
-                                    zIndex: 10
+                                    zIndex: 10,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
                                 }}
                                 aria-label="Close video player"
                             >
@@ -191,34 +211,26 @@ export default function Projects() {
     );
 }
 
-function ProjectCard({ project, index, onPlayVideo }) {
+export function ProjectCard({ project, index, onPlayVideo }) {
     const [isHovered, setIsHovered] = React.useState(false);
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            whileHover={{
-                y: -10,
-                rotateX: 5,
-                rotateY: 5,
-                scale: 1.02,
-                transition: { duration: 0.2 }
-            }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{
-                type: "spring",
+                type: 'spring',
                 stiffness: 260,
                 damping: 20,
                 delay: index * 0.1
             }}
-            className="project-card group"
-            style={{ perspective: 1000 }}
+            className="project-card"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
         >
-            <div 
+            <div
                 className="project-image"
-                onMouseEnter={() => project.ytLink && setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
                 style={{ position: 'relative', overflow: 'hidden' }}
             >
                 <div className="project-image-overlay" />
@@ -233,7 +245,7 @@ function ProjectCard({ project, index, onPlayVideo }) {
                                 height: '100%',
                                 objectFit: 'cover',
                                 objectPosition: 'center top',
-                                transition: 'transform 0.5s ease, opacity 0.3s ease'
+                                transition: 'transform 0.5s ease'
                             }}
                         />
                     ) : project.ytLink && isHovered ? (
@@ -263,9 +275,9 @@ function ProjectCard({ project, index, onPlayVideo }) {
                         position: 'absolute',
                         bottom: '10px',
                         right: '10px',
-                        background: 'rgba(255, 0, 0, 0.8)',
+                        background: 'rgba(255, 0, 0, 0.85)',
                         color: 'white',
-                        padding: '4px 8px',
+                        padding: '4px 10px',
                         borderRadius: '4px',
                         fontSize: '0.75rem',
                         fontWeight: 600,
@@ -284,9 +296,7 @@ function ProjectCard({ project, index, onPlayVideo }) {
 
                 <div className="project-tags">
                     {project.tags.map(tag => (
-                        <span key={tag} className="project-tag">
-                            {tag}
-                        </span>
+                        <span key={tag} className="project-tag">{tag}</span>
                     ))}
                 </div>
 
@@ -298,12 +308,16 @@ function ProjectCard({ project, index, onPlayVideo }) {
                         <ExternalLink size={18} /> Live Demo
                     </a>
                     {project.readme && (
-                        <a href={project.readme} className="project-link link-code" target="_blank" rel="noopener noreferrer" style={{ opacity: 0.7 }}>
-                            README
+                        <a href={project.readme} className="project-link link-readme" target="_blank" rel="noopener noreferrer">
+                            <FileText size={18} /> README
                         </a>
                     )}
-                    {project.ytLink && (
-                        <button onClick={onPlayVideo} className="project-link link-demo" style={{ background: 'rgba(255, 0, 0, 0.1)', color: '#ff0000', border: '1px solid rgba(255, 0, 0, 0.2)' }} aria-label={`Watch ${project.title} demo video`}>
+                    {project.ytLink && onPlayVideo && (
+                        <button
+                            onClick={onPlayVideo}
+                            className="project-link link-yt"
+                            aria-label={`Watch ${project.title} demo video`}
+                        >
                             <Youtube size={18} /> Watch
                         </button>
                     )}

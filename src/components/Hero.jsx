@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import profilePhoto from '../assets/my photo.png';
-
+import logoProfileTrans from '../assets/logoProfile-transparent.png';
 
 export default function Hero() {
     const [displayText, setDisplayText] = useState("");
@@ -79,8 +79,16 @@ export default function Hero() {
                     className="hero-title"
                     style={{ fontFamily: 'var(--font-display)', fontWeight: 700, letterSpacing: '-0.03em' }}
                 >
-                    <div className="hero-name-container">
-                        <span className="gradient-text" style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)' }}>
+                    <div className="hero-name-container" style={{ maxWidth: '100%', overflow: 'hidden' }}>
+                        <span 
+                            className="gradient-text" 
+                            style={{ 
+                                fontSize: 'clamp(1.75rem, 5vw, 3.5rem)',
+                                wordBreak: 'break-word',
+                                display: 'inline-block',
+                                maxWidth: '100%'
+                            }}
+                        >
                             {displayText}
                         </span>
                         <motion.span
@@ -103,7 +111,14 @@ export default function Hero() {
                     viewport={{ once: true }}
                     transition={{ delay: 0.5 }}
                     className="hero-subtitle"
-                    style={{ fontFamily: 'var(--font-accent)', fontStyle: 'italic', fontWeight: 400, letterSpacing: '0.05em' }}
+                    style={{ 
+                        fontFamily: 'var(--font-accent)', 
+                        fontStyle: 'italic', 
+                        fontWeight: 400, 
+                        letterSpacing: '0.05em',
+                        fontSize: 'clamp(1rem, 3vw, 1.5rem)',
+                        padding: '0 1rem'
+                    }}
                 >
                     CS Engineering Student & Developer
                 </motion.h2>

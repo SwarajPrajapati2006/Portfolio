@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import Logo from './Logo';
 
 export default function Navbar({ toggleTheme, currentTheme }) {
@@ -13,12 +15,12 @@ export default function Navbar({ toggleTheme, currentTheme }) {
     }, []);
 
     const navLinks = [
-        { name: 'Home', href: '#hero' },
-        { name: 'About', href: '#about' },
-        { name: 'Skills', href: '#skills' },
-        { name: 'Projects', href: '#projects' },
-        { name: 'Certificates', href: '#certificates' },
-        { name: 'Contact', href: '#contact' },
+        { name: 'Home', to: '/' },
+        { name: 'About', to: '/about' },
+        { name: 'Skills', to: '/skills' },
+        { name: 'Projects', to: '/projects' },
+        { name: 'Certificates', to: '/certificates' },
+        { name: 'Contact', to: '/contact' },
     ];
 
     return (
@@ -37,18 +39,18 @@ export default function Navbar({ toggleTheme, currentTheme }) {
                 {/* Desktop Nav */}
                 <div className="nav-links desktop">
                     {navLinks.map((link) => (
-                        <a key={link.name} href={link.href} className="nav-link">
+                        <Link key={link.name} to={link.to} className="nav-link">
                             {link.name}
                             <span className="nav-link-underline" />
-                        </a>
+                        </Link>
                     ))}
                     <button
                         onClick={toggleTheme}
                         className="menu-btn"
-                        style={{ fontSize: '1.25rem', marginLeft: '1rem' }}
+                        style={{ marginLeft: '1rem' }}
                         aria-label="Toggle Theme"
                     >
-                        {currentTheme === 'dark' ? '☀️' : '🌙'}
+                        {currentTheme === 'dark' ? <Sun size={24} /> : <Moon size={24} />}
                     </button>
                 </div>
 
@@ -58,17 +60,16 @@ export default function Navbar({ toggleTheme, currentTheme }) {
                         <button
                             onClick={toggleTheme}
                             className="menu-btn"
-                            style={{ fontSize: '1.25rem' }}
                             aria-label={currentTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
                         >
-                            {currentTheme === 'dark' ? '☀️' : '🌙'}
+                            {currentTheme === 'dark' ? <Sun size={24} /> : <Moon size={24} />}
                         </button>
                         <button
                             className="menu-btn"
                             onClick={() => setMobileOpen(!mobileOpen)}
                             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
                         >
-                            {mobileOpen ? '✕' : '☰'}
+                            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
                         </button>
                     </div>
                 </div>
@@ -82,14 +83,14 @@ export default function Navbar({ toggleTheme, currentTheme }) {
                     >
                         <div className="mobile-links">
                             {navLinks.map((link) => (
-                                <a
+                                <Link
                                     key={link.name}
-                                    href={link.href}
+                                    to={link.to}
                                     className="mobile-nav-link"
                                     onClick={() => setMobileOpen(false)}
                                 >
                                     {link.name}
-                                </a>
+                                </Link>
                             ))}
                         </div>
                     </motion.div>
