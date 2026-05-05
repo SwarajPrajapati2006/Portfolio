@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import profilePhoto from '../assets/my photo.png';
 import logoProfileTrans from '../assets/logoProfile-transparent.png';
 
 export default function Hero() {
@@ -48,7 +47,7 @@ export default function Hero() {
             <div className="hero-content">
                 <motion.div
                     className="avatar-container"
-                    initial={{ opacity: 0, scale: 0.5, y: -50 }}
+                    initial={{ opacity: 1, scale: 0.5, y: -50 }}
                     animate={{
                         opacity: 1,
                         scale: 1,
@@ -59,16 +58,18 @@ export default function Hero() {
                         ease: "easeOut"
                     }}
                 >
-                    <motion.div className="avatar-image-wrapper">
+                    <div className="avatar-image-wrapper">
                         <img
-                            src={profilePhoto}
+                            src="/avatar.webp"
                             alt="Swaraj Prajapati - Full Stack Developer"
                             className="avatar-img"
                             loading="eager"
+                            fetchpriority="high"
+                            decoding="async"
                             width="200"
                             height="200"
                         />
-                    </motion.div>
+                    </div>
                 </motion.div>
 
                 <motion.h1

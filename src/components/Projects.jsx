@@ -8,8 +8,19 @@ import notesImg from '../assets/sticky notes.png';
 import textToSpeechImg from '../assets/text to speech convertor.png';
 import worldAtlasImg from '../assets/World Atlas.png';
 import foodGalaxyImg from '../assets/Food Galaxy.png';
+import gapGraphImg from '../assets/GapGraph.png';
 
 const mainProjects = [
+    {
+        title: 'GapGraph AI',
+        desc: 'AI-powered career gap analysis tool that helps users identify skill gaps and generate personalized learning roadmaps.',
+        tags: ['React', 'Generative AI', 'Analysis'],
+        github: 'https://github.com/SwarajPrajapati2006/GapGraph',
+        link: 'https://gap-graph.vercel.app/upload',
+        icon: <Monitor size={48} />,
+        image: gapGraphImg,
+        readme: 'https://github.com/SwarajPrajapati2006/GapGraph#readme'
+    },
     {
         title: 'Bentley Clone',
         desc: 'A premium, responsive landing page clone of the Bentley Motors website, featuring luxury aesthetics and smooth transitions.',
@@ -18,7 +29,7 @@ const mainProjects = [
         link: 'https://luxury-choux-7ba7a1.netlify.app/',
         icon: <Layout size={48} />,
         image: bentleyImg,
-        readme: 'https://github.com/SwarajPrajapati2006/Projects/tree/main/Bentley%20CLone',
+        readme: 'https://github.com/SwarajPrajapati2006/Projects/tree/main/Bentley%20clone',
         ytLink: 'https://www.youtube.com/embed/FrVXoVzK4Ys'
     },
     {

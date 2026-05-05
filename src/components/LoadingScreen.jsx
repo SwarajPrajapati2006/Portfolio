@@ -9,7 +9,7 @@ export default function LoadingScreen({ onComplete }) {
         const timer = setTimeout(() => {
             setIsPresent(false);
             if (onComplete) onComplete();
-        }, 2500);
+        }, 200);
 
         return () => clearTimeout(timer);
     }, [onComplete]);

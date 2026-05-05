@@ -38,7 +38,7 @@ function App() {
                     }
                     return next;
                 });
-            }, 30);
+            }, 10);
             return () => clearInterval(interval);
         }
     }, [isLoading]);
@@ -77,7 +77,7 @@ function App() {
                 <LoadingScreen
                     progress={loadingProgress}
                     theme={theme}
-                    onComplete={() => setTimeout(() => setIsLoading(false), 1000)}
+                    onComplete={() => setTimeout(() => setIsLoading(false), 50)}
                 />
             )}
 
