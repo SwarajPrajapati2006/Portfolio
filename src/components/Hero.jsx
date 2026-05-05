@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import logoProfileTrans from '../assets/logoProfile-transparent.png';
 
 export default function Hero() {
     const [displayText, setDisplayText] = useState("");
