@@ -11,7 +11,7 @@ import Navbar from './components/Navbar';
 import CustomCursor from './components/CustomCursor';
 import Footer from './components/Footer';
 import SEO from './components/SEO';
-// Verified deployment trigger
+// Trigger deployment with verified email
 const Home = lazy(() => import('./components/Home'));
 const About = lazy(() => import('./components/About'));
 const Skills = lazy(() => import('./components/Skills'));
