@@ -4,25 +4,29 @@ export const useScrollBlur = () => {
     const sectionsRef = useRef([]);
 
     useEffect(() => {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const lowPowerDevice = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+
+        if (reduceMotion || lowPowerDevice) {
+            document.querySelectorAll('.section-container').forEach(section => {
+                section.classList.remove('blur-out');
+                section.classList.add('focus-in');
+            });
+            return undefined;
+        }
+
         const observerOptions = {
             root: null,
-            rootMargin: '-10% 0px -10% 0px',
-            threshold: [0.1, 0.3, 0.5, 0.7]
+            rootMargin: '-8% 0px -8% 0px',
+            threshold: 0.16
         };
 
         const observerCallback = (entries) => {
             entries.forEach(entry => {
                 const section = entry.target;
 
-                if (entry.isIntersecting) {
-                    // Section is in view - make it sharp
-                    section.classList.remove('blur-out');
-                    section.classList.add('focus-in');
-                } else {
-                    // Section is out of view - make it blurry
-                    section.classList.remove('focus-in');
-                    section.classList.add('blur-out');
-                }
+                section.classList.toggle('focus-in', entry.isIntersecting);
+                section.classList.toggle('blur-out', !entry.isIntersecting);
             });
         };
 
